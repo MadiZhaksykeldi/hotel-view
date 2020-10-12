@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:http="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="C:/Users/Madi/Downloads/HotelManagementSystem/src/main/resources/static/index.html"
+           class="w3-bar-item w3-button"><b></b>Hotels</a>
+    </div>
+</div>
+<center>
+    <div id='root'></div>
+    <script>
+        async function getData(url = '') {
+            const response = await fetch(url, {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+            });
+            return await response.json();
+        }
+
+        var root = document.getElementById('root');
+
+        getData('http://localhost:8081/bookings')
+            .then((data) => {
+                console.log(data);
+
+                var p = document.createElement("p");
+
+                var textnode = document.createTextNode(data[1]);
+
+                p.appendChild(textnode);
+                root.appendChild(p);
+            });
+    </script>
+    <div>
+        <center>
+            <br><br><br><br><br>
+            <a href="http://localhost:8081/bookings" target="_blank"> <img
+                    src="https://cf.bstatic.com/images/hotel/max500/315/31569727.jpg"/> </a>
+
+            <a href="http://localhost:8082/deals" target="_blank"> <img
+                    src="https://cf.bstatic.com/images/hotel/max500/837/83721643.jpg"/> </a>
+
+            <a href="http://localhost:8083/cases" target="_blank"> <img
+                    src="https://www.telegraafhotel.com/wp-content/uploads/2016/05/superior-twin01-500x500.jpg"/> </a>
+        </center>
+    </div>
+    <div class="inline-buttons">
+        <h3>
+            <a class="one-third first button" href="http://localhost:8081/bookings"> Bookings                    </a>
+            <a class="one-third button" href="http://localhost:8082/deals"> Deals                    </a>
+            <a class="one-third button" href="http://localhost:8083/cases"> Support                    </a>
+        </h3>
+    </div>
+    <style>
+        .inline-buttons .one-third {
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 1076px) {
+            .inline-buttons .one-third {
+                width: 100%;
+                margin: 20px;
+            }
+        }
+    </style>
+    <br><br><br><br>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-16">
+        <p>Made by Madi</p>
+    </footer>
+</center>
+</body>
+</html>
