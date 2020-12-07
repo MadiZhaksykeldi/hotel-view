@@ -65,6 +65,16 @@
             <a class="one-third button" href="http://localhost:8083/cases"> Support                    </a>
         </h3>
     </div>
+    <form>
+        <select onchange="location = this.value;">
+            <option>-------Select Your Hotel----------</option>
+            <option value="http://localhost:8081/bookings/1" style="color: violet;">Almaty Hotel</option>
+            <option value="http://localhost:8081/bookings/2" style="color: blue;">Moscow Hotel</option>
+            <option value="http://localhost:8081/bookings/3" style="color: black;">Riga Hotel</option>
+            <option value="http://localhost:8081/bookings/4" style="color: green;">Frankfurt Hotel</option>
+            <option value="http://localhost:8081/bookings/5" style="color: red;">Paris Hotel</option>
+        </select>
+    </form>
     <style>
         .inline-buttons .one-third {
             text-align: center;
